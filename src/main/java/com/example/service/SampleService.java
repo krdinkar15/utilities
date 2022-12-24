@@ -4,7 +4,6 @@ import com.example.entity.Joke;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
@@ -17,7 +16,6 @@ public class SampleService {
         RestTemplate restTemplate=new RestTemplate();
         String json=restTemplate.getForObject(uri,String.class);
         Joke joke=convertToObject(json);
-        LOG.info(joke.toString());
         return joke.getSetup() +"\n"+joke.getPunchLine();
 
 
@@ -31,7 +29,7 @@ public class SampleService {
             joke = objectMapper.readValue(json, Joke.class);
         }catch (Exception ex)
         {
-            LOG.error("Exception in object Mapper "+ex);
+            LOG.error("Exception in object Mapper {}",ex);
         }
        return joke;
     }

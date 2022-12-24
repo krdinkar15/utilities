@@ -2,12 +2,17 @@ package com.example.entity;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class Joke {
 
-    //{"id":152,"type":"general","setup":"What?s 50 Cent?s name in Zimbabwe?","punchline":"200 Dollars."}
+
+//     Format of Json data
+//     "id":152,
+//     "type":"general",
+//     "setup":"What?s 50 Cent?s name in Zimbabwe?",
+//     "punchline":"200 Dollars."
+
     private int id;
     private String type;
     private String setup;
